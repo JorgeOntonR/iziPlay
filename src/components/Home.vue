@@ -1,7 +1,7 @@
+
 <template>
     <div>
-        <h1>{{ title }}</h1>
-        <h3>{{ tema }}</h3>
+        <h1>{{ tema }}</h1>
         <b-container>
             <b-row>
                 <b-col cols="3">
@@ -225,6 +225,7 @@
 </template>
 
 <script>
+/*eslint-disable no-debugger*/
 import personajes from '../data/Personajes'
 import ciudadesPaises from '../data/CiudadesPaises'
 import hechizosJSON from '../data/Hechizos'
@@ -471,9 +472,9 @@ export default {
       },
       realizarEscaleraMagica(){
           debugger
-          let caracteres = this.escaleraMagica.entradaTexto.split("");
+          //let caracteres = this.escaleraMagica.entradaTexto.split("");
           let entrada = this.escaleraMagica.entradaTexto;
-          let salida;
+          //let salida;
           let aux = [];
           let i = 0
           this.escaleraMagicaHTML= this.distintivo+'\n';
@@ -498,7 +499,7 @@ export default {
       realizarParsel(){
         let caracteres = this.parsel.entradaTexto.split("");
         console.log(caracteres)
-        let entrada = this.parsel.entradaTexto;
+        //let entrada = this.parsel.entradaTexto;
         this.parselHTML= this.distintivo+'\n';
         let salida ="";
         for(let i = 0;i<caracteres.length;i++){
