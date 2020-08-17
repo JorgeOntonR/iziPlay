@@ -610,7 +610,7 @@ export default {
       },
       mayus(id) {
             if(id==='acrosticoCruzado'){
-                //this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
+                this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
                 let caracteres = this.acrosticoCruzado.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
