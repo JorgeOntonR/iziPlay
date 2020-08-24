@@ -37,7 +37,7 @@ export default {
 
 @media (prefers-reduced-motion: no-preference) {
   #logo {
-    height: 150px;
+    height: 750px;
     animation: App-logo-spin infinite 5s linear;
   }
 }

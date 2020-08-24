@@ -1,6 +1,6 @@
 [
     {
-        "nombre":"Aberfoth",
+        "nombre":"Aberforth",
         "apellido":"Dumbledore",
         "casa":""
     },
@@ -115,13 +115,43 @@
         "casa":""
     },
     {
+        "nombre":"Ernest",
+        "apellido":"Macmillan",
+        "casa":""
+    },
+    {
+        "nombre":"Ernie",
+        "apellido":"Prang",
+        "casa":""
+    },
+    {
         "nombre":"Fred",
         "apellido":"Weasley",
         "casa":""
     },
     {
+        "nombre":"Filius",
+        "apellido":"Flitwick",
+        "casa":""
+    },
+    {
+        "nombre":"Fleur",
+        "apellido":"Delacour",
+        "casa":""
+    },
+    {
         "nombre":"George",
         "apellido":"Weasley",
+        "casa":""
+    },
+    {
+        "nombre":"Gellert",
+        "apellido":"Grindelwald",
+        "casa":""
+    },
+    {
+        "nombre":"Galatea",
+        "apellido":"Merrythought",
         "casa":""
     },
     {
@@ -146,7 +176,17 @@
     },
     {
         "nombre":"Igor",
-        "apellido":"",
+        "apellido":"Karkarov",
+        "casa":""
+    },
+    {
+        "nombre":"Irma",
+        "apellido":"Pince",
+        "casa":""
+    },
+    {
+        "nombre":"Inigo",
+        "apellido":"Imago",
         "casa":""
     },
     {
@@ -155,8 +195,28 @@
         "casa":""
     },
     {
+        "nombre":"James",
+        "apellido":"Potter",
+        "casa":""
+    },
+    {
+        "nombre":"Jo",
+        "apellido":"King",
+        "casa":""
+    },
+    {
         "nombre":"Kendra",
         "apellido":"Dumbledore",
+        "casa":""
+    },
+    {
+        "nombre":"Karl",
+        "apellido":"Jenkinks",
+        "casa":""
+    },
+    {
+        "nombre":"Katie",
+        "apellido":"Bell",
         "casa":""
     },
     {
@@ -170,8 +230,23 @@
         "casa":""
     },
     {
+        "nombre":"Lyall",
+        "apellido":"Lupin",
+        "casa":""
+    },
+    {
         "nombre":"Minerva",
         "apellido":"McGonagall",
+        "casa":""
+    },
+    {
+        "nombre":"Molly",
+        "apellido":"Weasley",
+        "casa":""
+    },
+    {
+        "nombre":"Marcus",
+        "apellido":"Flint",
         "casa":""
     },
     {
@@ -185,13 +260,38 @@
         "casa":""
     },
     {
+        "nombre":"Newton",
+        "apellido":"Scamander",
+        "casa":""
+    },
+    {
         "nombre":"Oliver",
         "apellido":"Wood",
         "casa":""
     },
     {
+        "nombre":"Orla",
+        "apellido":"Quirke",
+        "casa":""
+    },
+    {
+        "nombre":"Owen",
+        "apellido":"Cauldwell",
+        "casa":""
+    },
+    {
         "nombre":"Percy",
         "apellido":"Weasley",
+        "casa":""
+    },
+    {
+        "nombre":"Padma",
+        "apellido":"Patil",
+        "casa":""
+    },
+    {
+        "nombre":"Parvati",
+        "apellido":"Patil",
         "casa":""
     },
     {
@@ -205,8 +305,18 @@
         "casa":""
     },
     {
+        "nombre":"Rowena",
+        "apellido":"Ravenclaw",
+        "casa":""
+    },
+    {
         "nombre":"Severus",
         "apellido":"Snape",
+        "casa":""
+    },
+    {
+        "nombre":"Salazar",
+        "apellido":"Slytherin",
         "casa":""
     },
     {
@@ -225,8 +335,23 @@
         "casa":""
     },
     {
+        "nombre":"Tom",
+        "apellido":"Riddle",
+        "casa":""
+    },
+    {
+        "nombre":"Ursula",
+        "apellido":"Flint",
+        "casa":""
+    },
+    {
+        "nombre":"Ulick",
+        "apellido":"Gamp",
+        "casa":""
+    },
+    {
         "nombre":"Urquhart",
-        "apellido":"",
+        "apellido":"Rackharrow",
         "casa":""
     },
     {
@@ -238,11 +363,70 @@
         "nombre":"Viktor",
         "apellido":"Krum",
         "casa":""
-    }
-    ,
+    },
+    {
+        "nombre":"Valentina",
+        "apellido":"Vázquez",
+        "casa":""
+    },
+    {
+        "nombre":"Walburga",
+        "apellido":"Black",
+        "casa":""
+    },
+    {
+        "nombre":"Walden",
+        "apellido":"Macnair",
+        "casa":""
+    },
+    {
+        "nombre":"Webster",
+        "apellido":"Boot",
+        "casa":""
+    },
     {
         "nombre":"Xenophilius",
         "apellido":"Lovegood",
+        "casa":""
+    },
+    {
+        "nombre":"Xavier",
+        "apellido":"Rastrick",
+        "casa":""
+    },
+    {
+        "nombre":"Xenakis",
+        "apellido":"Georgios",
+        "casa":""
+    },
+    {
+        "nombre":"Yardley",
+        "apellido":"Platt",
+        "casa":""
+    },
+    {
+        "nombre":"Yoshi",
+        "apellido":"Wakahisa",
+        "casa":""
+    },
+    {
+        "nombre":"Yusuf",
+        "apellido":"Kama",
+        "casa":""
+    },
+    {
+        "nombre":"Zacharias",
+        "apellido":"Smith",
+        "casa":""
+    },
+    {
+        "nombre":"Zamira",
+        "apellido":"Gulch",
+        "casa":""
+    },
+    {
+        "nombre":"Zygmunt",
+        "apellido":"Budge",
         "casa":""
     }
 ]

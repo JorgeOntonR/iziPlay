@@ -5,18 +5,8 @@
         <b-container>
             <b-row>
                 <b-col cols="3">
-                    
                 </b-col>
                 <b-col >
-                    <!--<b-form inline id="formDistintivo">
-                        {{distintivo}}
-                        <b-form-input
-                            id="input-2"
-                            v-model="distintivo"
-                            placeholder="Pega tu distintivo Aqui"
-                        ></b-form-input>
-                        <b-button v-on:click="guardarDistintivo" variant="primary">Subir</b-button>
-                    </b-form>-->
                     <b-list-group >
                         <b-list-group-item button v-on:click="abrirDinamica('acrosticoCruzado')">ACRÓSTICO CRUZADO</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('stop')">STOP</b-list-group-item>
@@ -35,11 +25,15 @@
         </b-container>
         <b-modal ref="modalAcrosticoCruzado" hide-footer title="Acróstico Cruzado">
             <div class="d-block text-center">
+                <!--La etiqueta b-form-radio group es contenedor de radio buttons
+                    v-model es el valor que ira cambiando al ingresar opciones o letras-->
                 <b-form-radio-group
                 class="pt-2"
                 :options="['Personaje', 'Ciudad/Pais']"
                 v-model="acrosticoCruzado.tipoEntrada"
                 ></b-form-radio-group>
+                <!--La etiqueta b-form-input es contenedor de inputs
+                    v-model es el valor que ira cambiando al ingresar opciones o letras-->
                 <b-form-input
                     id="nombreAcrosticoCruzado"
                     v-model="acrosticoCruzado.entradaTexto"
@@ -293,10 +287,12 @@ export default {
       },
 
       realizarAcrosticoCruzado(){
+        
         let caracteres = this.acrosticoCruzado.entradaTexto.split("");
         let salida=[];
         let esPersonaje = true;
         ciudadesPaises.forEach(e => {
+            
             let pais = e.translations.es;
             let ciudad = e.capital;
             if(e.translations.es !== null){
@@ -310,29 +306,65 @@ export default {
             let ciudadesLetras=[];
             for(let i = 0;i<caracteres.length;i++){
                 ciudadesLetras=[];
+                
                 for(let j=0;j<ciudadesPaises.length;j++){
                     let traduccion = ciudadesPaises[j].translations.es;
                     if(traduccion !== null)
-                    if(traduccion.charAt(0) === caracteres[i] ){
-                        ciudadesLetras.push(traduccion);
-                    }
-                    /*else if(ciudadesPaises[j].capital.charAt(0) === caracteres[i]){
-                        ciudadesLetras.push(ciudadesPaises[j].capital);
-                    }*/
+                        if(traduccion.charAt(0) === caracteres[i] ){
+                            ciudadesLetras.push(traduccion);
+                        }
                 }
-                salida.push(ciudadesLetras[Math.floor(Math.random() * ciudadesLetras.length)])
+                for (let k = 0; k < ciudadesPaises.length; k++) {
+                    let capital = ciudadesPaises[k].capital
+                    if(capital !== null)
+                        if(capital.charAt(0) === caracteres[i]){
+                            ciudadesLetras.push(capital);
+                        }
+                }
+                let presalida = ciudadesLetras[Math.floor(Math.random() * ciudadesLetras.length)]
+                if (salida.length != 0) {
+                    for (let x = 0; x <= salida.length; x++) {
+                        if (presalida !== salida[x]) {
+                            salida.push(presalida)
+                            break
+                        }
+                        if (x == salida.length) {
+                            salida.push(presalida)
+                            break
+                        }
+                    }
+                } else {
+                    salida.push(presalida)
+                }
+                    
             }
         }else{
             this.acrosticoCruzado.tipoEntrada = 'Ciudad/Pais'
-            let personajesDeLetras=[];
+            let totalLetras=[];
             for(let i = 0;i<caracteres.length;i++){
-                personajesDeLetras=[];
+                totalLetras=[];
                 for(let j=0;j<personajes.length;j++){
                     if(personajes[j].nombre.charAt(0) === caracteres[i]){
-                        personajesDeLetras.push(personajes[j].nombre);
+                        totalLetras.push(personajes[j].nombre + ' ' +personajes[j].apellido);
                     }
                 }
-                salida.push(personajesDeLetras[Math.floor(Math.random() * personajesDeLetras.length)])
+                for(let j=0;j<personajes.length;j++){
+                    if(personajes[j].apellido.charAt(0) === caracteres[i]){
+                        totalLetras.push(personajes[j].apellido + ' ' +personajes[j].nombre);
+                    }
+                }
+                for(let j=0;j<criaturasJSON.length;j++){
+                    if(criaturasJSON[j].nombre.charAt(0) === caracteres[i]){
+                        totalLetras.push(criaturasJSON[j].nombre);
+                    }
+                }
+                for(let j=0;j<hechizosJSON.length;j++){
+                    if(hechizosJSON[j].nombre.charAt(0) === caracteres[i]){
+                        totalLetras.push(hechizosJSON[j].nombre);
+                    }
+                }
+                debugger
+                salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
             }
         }
         this.acrosticoCruzadoHTML = this.distintivo+'\n';
@@ -471,7 +503,7 @@ export default {
           }
       },
       realizarEscaleraMagica(){
-          debugger
+          
           //let caracteres = this.escaleraMagica.entradaTexto.split("");
           let entrada = this.escaleraMagica.entradaTexto;
           //let salida;
@@ -609,6 +641,7 @@ export default {
 
       },
       mayus(id) {
+          
             if(id==='acrosticoCruzado'){
                 this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
                 let caracteres = this.acrosticoCruzado.entradaTexto.split("");
@@ -707,7 +740,7 @@ export default {
                 this.parsel.entradaTexto = sinTildes;
                 this.realizarParsel();
             }
-            if(id==='encora'){
+            /*if(id==='encora'){
                 this.encora.entradaTexto = this.encora.entradaTexto.toUpperCase();
                 let caracteres = this.encora.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
@@ -730,7 +763,7 @@ export default {
                 let sinTildes = caracteres.toString().replace(/,/g, '');
                 this.encora.entradaTexto = sinTildes;
                 this.realizarEncora();
-            }
+            }*/
         }
   }
 }
