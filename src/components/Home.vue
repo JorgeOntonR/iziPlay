@@ -336,6 +336,7 @@ export default {
                 } else {
                     salida.push(presalida)
                 }
+                console.log("xdddd")
                     
             }
         }else{
