@@ -336,7 +336,7 @@ export default {
                 } else {
                     salida.push(presalida)
                 }
-                    
+                console.log("linux")
             }
         }else{
             this.acrosticoCruzado.tipoEntrada = 'Ciudad/Pais'
