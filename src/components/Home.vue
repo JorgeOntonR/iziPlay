@@ -338,6 +338,7 @@ export default {
                 }
                 console.log("xdddd")
                     
+                console.log("linux")
             }
         }else{
             this.acrosticoCruzado.tipoEntrada = 'Ciudad/Pais'
