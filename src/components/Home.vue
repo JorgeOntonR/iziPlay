@@ -226,6 +226,7 @@ import hechizosJSON from '../data/Hechizos'
 import criaturasJSON from '../data/Criaturas'
 import emoticonesJSON from '../data/Emoticones'
 import abecedariosParselJSON from '../data/Abecedario'
+//import {validarRepetidos} from './utilFunctions'
 
 export default {
     name: 'Home',
@@ -291,6 +292,7 @@ export default {
         let caracteres = this.acrosticoCruzado.entradaTexto.split("");
         let salida=[];
         let esPersonaje = true;
+        let totalaux = [];
         ciudadesPaises.forEach(e => {
             
             let pais = e.translations.es;
@@ -321,24 +323,21 @@ export default {
                             ciudadesLetras.push(capital);
                         }
                 }
-                let presalida = ciudadesLetras[Math.floor(Math.random() * ciudadesLetras.length)]
-                if (salida.length != 0) {
-                    for (let x = 0; x <= salida.length; x++) {
-                        if (presalida !== salida[x]) {
-                            salida.push(presalida)
-                            break
+                totalaux = ciudadesLetras.slice();
+                if (i>0) {
+                    for (let j = 0; j < salida.length; j++) {
+                        for (let k = 0; k < totalaux.length; k++) {
+                            if (salida[j] == totalaux[k]) {
+                                totalaux.splice(k,1)
+                            }
                         }
-                        if (x == salida.length) {
-                            salida.push(presalida)
-                            break
-                        }
-                    }
-                } else {
-                    salida.push(presalida)
+                    }        
                 }
-                console.log("xdddd")
-                    
-                console.log("linux")
+                if (totalaux.length>0){
+                    salida.push(totalaux[Math.floor(Math.random() * totalaux.length)])
+                }else{ 
+                    salida.push(ciudadesLetras[Math.floor(Math.random() * ciudadesLetras.length)])
+                }
             }
         }else{
             this.acrosticoCruzado.tipoEntrada = 'Ciudad/Pais'
@@ -365,11 +364,25 @@ export default {
                         totalLetras.push(hechizosJSON[j].nombre);
                     }
                 }
-                debugger
-                salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
+                totalaux = totalLetras.slice();
+                if (i>0) {
+                    for (let j = 0; j < salida.length; j++) {
+                        for (let k = 0; k < totalaux.length; k++) {
+                            if (salida[j] == totalaux[k]) {
+                                totalaux.splice(k,1)
+                            }
+                        }
+                    }        
+                }
+                if (totalaux.length>0){
+                    salida.push(totalaux[Math.floor(Math.random() * totalaux.length)])
+                }else{ 
+                    salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
+                }
+                
             }
         }
-        this.acrosticoCruzadoHTML = this.distintivo+'\n';
+        this.acrosticoCruzadoHTML = "";
         for(let i = 0; i<salida.length;i++){
             if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.acrosticoCruzadoHTML = this.acrosticoCruzadoHTML + `\n`;
@@ -428,6 +441,7 @@ export default {
         let caracteres = this.acrosticoMagico.entradaTexto.split("");
         let salida=[];
         let totalLetras=[];
+        let totalaux = [];
         for(let i = 0;i<caracteres.length;i++){
             totalLetras=[];
             for(let j=0;j<personajes.length;j++){
@@ -450,10 +464,25 @@ export default {
                     totalLetras.push(hechizosJSON[j].nombre);
                 }
             }
-            salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
+            
+            totalaux = totalLetras.slice();
+            if (i>0) {
+                for (let j = 0; j < salida.length; j++) {
+                    for (let k = 0; k < totalaux.length; k++) {
+                        if (salida[j] == totalaux[k]) {
+                            totalaux.splice(k,1)
+                        }
+                    }
+                }        
+            }
+            if (totalaux.length>0){
+                salida.push(totalaux[Math.floor(Math.random() * totalaux.length)])
+            }else{ 
+                salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
+            }
         }
         console.log(salida)
-        this.acrosticoMagicoHTML = this.distintivo+'\n';
+        this.acrosticoMagicoHTML = "";
         for(let i = 0; i<salida.length;i++){
             if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.acrosticoMagicoHTML = this.acrosticoMagicoHTML+'\n';
@@ -468,6 +497,7 @@ export default {
           let caracteres = this.yElEmoticon.entradaTexto.split("");
           let salida=[];
           let totalEmoticones = [];
+          let totalaux = []
           for(let i = 0;i<caracteres.length;i++){
             totalEmoticones=[];
             for(let j=0;j<emoticonesJSON.length;j++){
@@ -475,9 +505,24 @@ export default {
                     totalEmoticones.push(emoticonesJSON[j].emoticon);
                 }
             }
-            salida.push(totalEmoticones[Math.floor(Math.random() * totalEmoticones.length)])
+            totalaux = totalEmoticones.slice();
+            if (i>0) {
+                for (let j = 0; j < salida.length; j++) {
+                    for (let k = 0; k < totalaux.length; k++) {
+                        if (salida[j] == totalaux[k]) {
+                            totalaux.splice(k,1)
+                        }
+                    }
+                }        
+            }
+            if (totalaux.length>0){
+                salida.push(totalaux[Math.floor(Math.random() * totalaux.length)])
+            }else{ 
+                salida.push(totalEmoticones[Math.floor(Math.random() * totalEmoticones.length)])
+            }
+            
           }
-          this.yElEmoticonHTML= this.distintivo+'\n';
+          this.yElEmoticonHTML= "";
         for(let i = 0; i<salida.length;i++){
              if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.yElEmoticonHTML = this.yElEmoticonHTML + `\n`;
