@@ -274,8 +274,7 @@ export default {
         dinamicaAhorcadosHTML:``,
         escaleraMagicaHTML:``,
         parselHTML:``,
-        encoraHTML:``,
-        distintivo:''
+        encoraHTML:``
         }
   },
   methods:{
@@ -428,7 +427,7 @@ export default {
                 salida.push(hechizos[Math.floor(Math.random() * hechizos.length)])
                 salida.push(criaturas[Math.floor(Math.random() * criaturas.length)])
             }
-            this.stopHTML = this.distintivo+'\n';
+            this.stopHTML = "";
             for(let i = 0; i<salida.length;i++){
                 if(salida[i] === undefined || salida[i] === 'undefined'){
                     this.stopHTML = this.stopHTML + `\n`;
@@ -532,7 +531,7 @@ export default {
         }
       },
       realizarDinamicaAhorcados(){
-          this.dinamicaAhorcadosHTML= this.distintivo+'\n';
+          this.dinamicaAhorcadosHTML= ""
           let salida=[];
           personajes.forEach(e => {
               if(e.nombre.length.toString() === this.dinamicaAhorcados.entradaPrimero){
@@ -556,7 +555,7 @@ export default {
           //let salida;
           let aux = [];
           let i = 0
-          this.escaleraMagicaHTML= this.distintivo+'\n';
+          this.escaleraMagicaHTML= ""
           while(entrada.length > 0){
               this.escaleraMagicaHTML= this.escaleraMagicaHTML + entrada + '\n';
               aux[i] = entrada;
@@ -579,7 +578,7 @@ export default {
         let caracteres = this.parsel.entradaTexto.split("");
         console.log(caracteres)
         //let entrada = this.parsel.entradaTexto;
-        this.parselHTML= this.distintivo+'\n';
+        this.parselHTML= ""
         let salida ="";
         for(let i = 0;i<caracteres.length;i++){
             abecedariosParselJSON.forEach(letra=>{
