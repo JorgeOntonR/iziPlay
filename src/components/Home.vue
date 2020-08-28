@@ -15,7 +15,8 @@
                         <b-list-group-item button v-on:click="abrirDinamica('dinamicaAhorcados')">AHORCADOS</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('escaleraMagica')">ESCALERAS</b-list-group-item>    
                         <b-list-group-item button v-on:click="abrirDinamica('parsel')">PARSEL</b-list-group-item>
-                        <b-list-group-item button v-on:click="abrirDinamica('encorazonados')">ENCORAZONADOS</b-list-group-item>                             
+                        <b-list-group-item button v-on:click="abrirDinamica('encorazonados')">ENCORAZONADOS</b-list-group-item>
+                        <b-list-group-item button v-on:click="abrirDinamica('bloquei')">BLOQUE EN I</b-list-group-item>
                     </b-list-group>
                 </b-col>
                 <b-col cols="3">
@@ -200,7 +201,7 @@
                     id="palabraEncora"
                     v-model="encora.entradaTexto"
                     placeholder="Entrada de texto"
-                    v-on:keyup.enter="realizarEncora(emojiEncora)"
+                    v-on:keyup.enter="realizarEncora()"
                     v-on:keyup="mayus('encora')"
                     autocomplete="off"
                 ></b-form-input>
@@ -212,6 +213,32 @@
                 ></b-form-textarea>
             </div>
             <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('encoraExit')">Copiar al Portapapeles</b-button>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
+        </b-modal>
+        <b-modal ref="modalBloquei" hide-footer title="Bloque en I">
+            <div class="d-block text-center">
+                <b-form-input
+                    id="emojiBloquei"
+                    v-model="bloquei.emoji"
+                    placeholder="Emoji"
+                    autocomplete="off"
+                ></b-form-input>
+                <b-form-input
+                    id="palabraBloquei"
+                    v-model="bloquei.entradaTexto"
+                    placeholder="Entrada de texto"
+                    v-on:keyup.enter="realizarBloquei()"
+                    v-on:keyup="mayus('bloquei')"
+                    autocomplete="off"
+                ></b-form-input>
+                
+                <b-form-textarea
+                    id="bloqueiExit"
+                    plaintext :value="bloqueiHTML"
+                    rows="3"
+                ></b-form-textarea>
+            </div>
+            <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('bloqueiExit')">Copiar al Portapapeles</b-button>
             <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
         </b-modal>    
     </div>
@@ -267,6 +294,10 @@ export default {
             entradaTexto:'',
             emoji: '',
         },
+        bloquei:{
+            entradaTexto:'',
+            emoji: '',
+        },
         acrosticoCruzadoHTML: ``,
         stopHTML: ``,
         acrosticoMagicoHTML: ``,
@@ -274,14 +305,14 @@ export default {
         dinamicaAhorcadosHTML:``,
         escaleraMagicaHTML:``,
         parselHTML:``,
-        encoraHTML:``
+        encoraHTML:``,
+        bloqueiHTML:``
         }
   },
   methods:{
       copiarAlPortapeles(id_elemento){
             
             let aux= document.getElementById(id_elemento);
-            console.log(null)
             aux.select();
             document.execCommand("copy");
       },
@@ -480,7 +511,6 @@ export default {
                 salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
             }
         }
-        console.log(salida)
         this.acrosticoMagicoHTML = "";
         for(let i = 0; i<salida.length;i++){
             if(salida[i] === undefined || salida[i] === 'undefined'){
@@ -576,7 +606,6 @@ export default {
       },
       realizarParsel(){
         let caracteres = this.parsel.entradaTexto.split("");
-        console.log(caracteres)
         //let entrada = this.parsel.entradaTexto;
         this.parselHTML= ""
         let salida ="";
@@ -595,37 +624,37 @@ export default {
       },
       realizarEncora()
       {
-        
         let caracteres = this.encora.entradaTexto.split("");
         let salida = this.encora.emoji;
         for (let i = 0; i<caracteres.length; i++) {
             salida = salida + caracteres[i] + this.encora.emoji;
-        }
+            }
+            
         this.encoraHTML = salida;
 
       },
-      /*realizarJaula()
-      {
-        let emojisJaula = this.jaula.entradaTexto.split("");
-        let salida;
-        for (var i = 0; i <= emojisJaula.length; i++) {
-           let aux = 2*emojisJaula.length- (i+1);
-           while(aux>0)
-           {
-            salida = salida + emojisJaula[i];
-            aux--;
-           }
-           salida = salida + '\n';
-           if (i>0 && ) {
-            salida = salida + emojisJaula[i-1]
-           }
-           if (true) {
 
-           }
-        }
-      }*/
+      realizarBloquei ()
+      {
+          
+          let palabras = this.bloquei.entradaTexto.split(" ");
+          let salida = ""
+          for (let i = 0; i < palabras.length; i++) {
+              let caracteres = palabras[i].split("")
+              for (let j = 0; j < caracteres.length; j++) {
+                if (j%2==0) {
+                  salida = salida + this.bloquei.emoji + caracteres[j] + '\n'
+                } else {
+                  salida = salida + caracteres[j] + this.bloquei.emoji + '\n'
+                }
+              }
+              salida = salida + '\n'
+          }
+          this.bloqueiHTML = salida;
+      },
+      
       abrirDinamica (tipo){
-            console.log(tipo)
+            
             this.showModal(tipo);
       },
       showModal(tipo) {
@@ -654,6 +683,9 @@ export default {
                 case 'encorazonados':
                     this.$refs['modalEncorazonados'].show()
                     break;
+                case 'bloquei':
+                    this.$refs['modalBloquei'].show()
+                    break;
           }
       },
       hideModal() {
@@ -665,6 +697,7 @@ export default {
         this.$refs['modalDinamicaAhorcados'].hide()
         this.$refs['modalParsel'].hide()
         this.$refs['modalEncorazonados'].hide()
+        this.$refs['modalBloquei'].hide()
         this.acrosticoCruzado.entradaTexto='';
         this.stop.entradaTexto='';
         this.acrosticoMagico.entradaTexto = '';
@@ -682,10 +715,9 @@ export default {
         this.escaleraMagicaHTML = ''
         this.parselHTML = ''
         this.encoraHTML = ''
+        this.bloqueiHTML = ''
       },
-      guardarDistintivo(){
 
-      },
       mayus(id) {
           
             if(id==='acrosticoCruzado'){
@@ -786,7 +818,10 @@ export default {
                 this.parsel.entradaTexto = sinTildes;
                 this.realizarParsel();
             }
-            /*if(id==='encora'){
+            if(id==='bloquei'){
+                this.bloquei.entradaTexto = this.bloquei.entradaTexto.toUpperCase();
+            }
+            if(id==='encora'){
                 this.encora.entradaTexto = this.encora.entradaTexto.toUpperCase();
                 let caracteres = this.encora.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
@@ -808,8 +843,8 @@ export default {
                 }
                 let sinTildes = caracteres.toString().replace(/,/g, '');
                 this.encora.entradaTexto = sinTildes;
-                this.realizarEncora();
-            }*/
+                //this.realizarEncora();
+            }
         }
   }
 }
