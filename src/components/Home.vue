@@ -4,23 +4,25 @@
         <h1>{{ tema }}</h1>
         <b-container>
             <b-row>
-                <b-col cols="3">
-                </b-col>
-                <b-col >
+                
+                <b-col cols="6" >
                     <b-list-group >
                         <b-list-group-item button v-on:click="abrirDinamica('acrosticoCruzado')">ACRÓSTICO CRUZADO</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('stop')">STOP</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('acrosticoMagico')">ACRÓSTICO</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('yElEmoticon')">ABC DE EMOJIS</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('dinamicaAhorcados')">AHORCADOS</b-list-group-item>
+                        
+                    </b-list-group>
+                </b-col>
+                <b-col cols="6">
+                    <b-list-group>
                         <b-list-group-item button v-on:click="abrirDinamica('escaleraMagica')">ESCALERAS</b-list-group-item>    
                         <b-list-group-item button v-on:click="abrirDinamica('parsel')">PARSEL</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('encorazonados')">ENCORAZONADOS</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('bloquei')">BLOQUE EN I</b-list-group-item>
+                        <b-list-group-item button v-on:click="abrirDinamica('espejos')">ESPEJOS</b-list-group-item>
                     </b-list-group>
-                </b-col>
-                <b-col cols="3">
-                    
                 </b-col>
             </b-row>
         </b-container>
@@ -240,7 +242,32 @@
             </div>
             <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('bloqueiExit')">Copiar al Portapapeles</b-button>
             <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
-        </b-modal>    
+        </b-modal>
+        <b-modal ref="modalEspejos" hide-footer title="Espejos">
+            <div class="d-block text-center">
+                <b-form-radio-group
+                class="pt-2"
+                :options="['Simple', 'Doble']"
+                v-model="espejos.tipoEntrada"
+                
+                ></b-form-radio-group>
+                <b-form-input
+                    id="palabraEspejo"
+                    v-model="espejos.entradaTexto"
+                    placeholder="Entrada de texto"
+                    v-on:keyup.enter="realizarEspejos()"
+                    v-on:keyup="mayus('espejos')"
+                    autocomplete="off"
+                ></b-form-input>
+                <b-form-textarea
+                    id="espejosExit"
+                    plaintext :value="espejosHTML"
+                    rows="3"
+                ></b-form-textarea>
+            </div>
+            <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('espejosExit')">Copiar al Portapapeles</b-button>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
+        </b-modal>       
     </div>
     
 </template>
@@ -298,6 +325,10 @@ export default {
             entradaTexto:'',
             emoji: '',
         },
+        espejos:{
+            entradaTexto:'',
+            tipoEntrada:'Simple'
+        },
         acrosticoCruzadoHTML: ``,
         stopHTML: ``,
         acrosticoMagicoHTML: ``,
@@ -306,7 +337,8 @@ export default {
         escaleraMagicaHTML:``,
         parselHTML:``,
         encoraHTML:``,
-        bloqueiHTML:``
+        bloqueiHTML:``,
+        espejosHTML:``
         }
   },
   methods:{
@@ -652,6 +684,20 @@ export default {
           }
           this.bloqueiHTML = salida;
       },
+
+      realizarEspejos()
+      {
+          let salida = ""
+          let revertido = this.espejos.entradaTexto.split("").reverse()
+          for (let i = 0; i < revertido.length; i++) {
+              salida = salida + revertido[i]
+          }
+
+          if (this.espejos.tipoEntrada == 'Doble') {
+              salida = this.espejos.entradaTexto + salida
+          }
+          this.espejosHTML = salida
+      },
       
       abrirDinamica (tipo){
             
@@ -686,6 +732,9 @@ export default {
                 case 'bloquei':
                     this.$refs['modalBloquei'].show()
                     break;
+                 case 'espejos':
+                    this.$refs['modalEspejos'].show()
+                    break;
           }
       },
       hideModal() {
@@ -698,6 +747,7 @@ export default {
         this.$refs['modalParsel'].hide()
         this.$refs['modalEncorazonados'].hide()
         this.$refs['modalBloquei'].hide()
+        this.$refs['modalEspejos'].hide()
         this.acrosticoCruzado.entradaTexto='';
         this.stop.entradaTexto='';
         this.acrosticoMagico.entradaTexto = '';
@@ -707,6 +757,8 @@ export default {
         this.dinamicaAhorcados.entradaSegundo = ''
         this.parsel.entradaTexto = '';
         this.encora.entradaTexto = '';
+        this.bloquei.entradaTexto = '';
+        this.espejos.entradaTexto = '';
         this.acrosticoCruzadoHTML = '';
         this.stopHTML = '';
         this.acrosticoMagicoHTML = ''
@@ -716,6 +768,7 @@ export default {
         this.parselHTML = ''
         this.encoraHTML = ''
         this.bloqueiHTML = ''
+        this.espejosHTML = ''
       },
 
       mayus(id) {
@@ -844,6 +897,9 @@ export default {
                 let sinTildes = caracteres.toString().replace(/,/g, '');
                 this.encora.entradaTexto = sinTildes;
                 //this.realizarEncora();
+            }
+            if(id==="espejos"){
+                this.realizarEspejos();
             }
         }
   }
