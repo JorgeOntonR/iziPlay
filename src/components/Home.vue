@@ -273,8 +273,7 @@ export default {
         dinamicaAhorcadosHTML:``,
         escaleraMagicaHTML:``,
         parselHTML:``,
-        encoraHTML:``,
-        distintivo:''
+        encoraHTML:``
         }
   },
   methods:{
@@ -321,24 +320,9 @@ export default {
                             ciudadesLetras.push(capital);
                         }
                 }
+                debugger
                 let presalida = ciudadesLetras[Math.floor(Math.random() * ciudadesLetras.length)]
-                if (salida.length != 0) {
-                    for (let x = 0; x <= salida.length; x++) {
-                        if (presalida !== salida[x]) {
-                            salida.push(presalida)
-                            break
-                        }
-                        if (x == salida.length) {
-                            salida.push(presalida)
-                            break
-                        }
-                    }
-                } else {
-                    salida.push(presalida)
-                }
-                console.log("xdddd")
-                    
-                console.log("linux")
+                salida.push(presalida)
             }
         }else{
             this.acrosticoCruzado.tipoEntrada = 'Ciudad/Pais'
@@ -365,11 +349,27 @@ export default {
                         totalLetras.push(hechizosJSON[j].nombre);
                     }
                 }
-                debugger
-                salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
+                
+                let presalida = totalLetras[Math.floor(Math.random() * totalLetras.length)]
+                /*evadir los repetidos
+                if (salida.length != 0) {
+                    for (let x = 0; x <= salida.length; x++) {
+                        if (presalida !== salida[x]) {
+                            salida.push(presalida)
+                            break
+                        }
+                        if (x == salida.length) {
+                            salida.push(presalida)
+                            break
+                        }
+                    }
+                } else {
+                    salida.push(presalida)
+                }*/
+                salida.push(presalida)
             }
         }
-        this.acrosticoCruzadoHTML = this.distintivo+'\n';
+        this.acrosticoCruzadoHTML = ""
         for(let i = 0; i<salida.length;i++){
             if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.acrosticoCruzadoHTML = this.acrosticoCruzadoHTML + `\n`;
@@ -415,7 +415,7 @@ export default {
                 salida.push(hechizos[Math.floor(Math.random() * hechizos.length)])
                 salida.push(criaturas[Math.floor(Math.random() * criaturas.length)])
             }
-            this.stopHTML = this.distintivo+'\n';
+            this.stopHTML = "";
             for(let i = 0; i<salida.length;i++){
                 if(salida[i] === undefined || salida[i] === 'undefined'){
                     this.stopHTML = this.stopHTML + `\n`;
@@ -453,7 +453,7 @@ export default {
             salida.push(totalLetras[Math.floor(Math.random() * totalLetras.length)])
         }
         console.log(salida)
-        this.acrosticoMagicoHTML = this.distintivo+'\n';
+        this.acrosticoMagicoHTML =""
         for(let i = 0; i<salida.length;i++){
             if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.acrosticoMagicoHTML = this.acrosticoMagicoHTML+'\n';
@@ -477,7 +477,7 @@ export default {
             }
             salida.push(totalEmoticones[Math.floor(Math.random() * totalEmoticones.length)])
           }
-          this.yElEmoticonHTML= this.distintivo+'\n';
+          this.yElEmoticonHTML= ""
         for(let i = 0; i<salida.length;i++){
              if(salida[i] === undefined || salida[i] === 'undefined'){
                 this.yElEmoticonHTML = this.yElEmoticonHTML + `\n`;
@@ -487,7 +487,7 @@ export default {
         }
       },
       realizarDinamicaAhorcados(){
-          this.dinamicaAhorcadosHTML= this.distintivo+'\n';
+          this.dinamicaAhorcadosHTML= ""
           let salida=[];
           personajes.forEach(e => {
               if(e.nombre.length.toString() === this.dinamicaAhorcados.entradaPrimero){
@@ -511,7 +511,7 @@ export default {
           //let salida;
           let aux = [];
           let i = 0
-          this.escaleraMagicaHTML= this.distintivo+'\n';
+          this.escaleraMagicaHTML= ""
           while(entrada.length > 0){
               this.escaleraMagicaHTML= this.escaleraMagicaHTML + entrada + '\n';
               aux[i] = entrada;
@@ -534,7 +534,7 @@ export default {
         let caracteres = this.parsel.entradaTexto.split("");
         console.log(caracteres)
         //let entrada = this.parsel.entradaTexto;
-        this.parselHTML= this.distintivo+'\n';
+        this.parselHTML= ""
         let salida ="";
         for(let i = 0;i<caracteres.length;i++){
             abecedariosParselJSON.forEach(letra=>{

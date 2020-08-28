@@ -3,26 +3,166 @@
         "nombre":"Acromántula"
     },
     {
+        "nombre":"Abraxan"
+    },
+    {
+        "nombre":"Alizor de Westacottus"
+    },
+    {
+        "nombre":"Ave del Trueno"
+    },
+    {
+        "nombre":"Aethonan"
+    },
+    {
+        "nombre":"Aquavirius Maggott"
+    },
+    {
+        "nombre":"Ashwinder"
+    },
+    {
+        "nombre":"Augurey"
+    },
+    {
+        "nombre":"Arpia"
+    },
+
+    {
         "nombre":"Banshee"
     },
     {
         "nombre":"Basilisco"
     },
     {
+        "nombre":"Babosa Cornuda"
+    },
+    {
+        "nombre":"Billywig"
+    },
+    {
+        "nombre":"Bowtruckle"
+    },
+    {
+        "nombre":"Bundimun"
+    },
+    {
+        "nombre":"Bicornio"
+    },
+    {
+        "nombre":"Boggart"
+    },
+    {
+        "nombre":"Blibber Maravilloso"
+    },
+    {
+        "nombre":"Bola de Fuego Chino"
+    },
+    {
+        "nombre":"Bola de Fuego Catalán"
+    },
+
+    {
         "nombre":"Cancerbero"
     },
     {
-        "nombre":"Calamar"
+        "nombre":"Calamar Gigante"
     },
+    {
+        "nombre":"Caballito de Mar Volador"
+    },
+    {
+        "nombre":"Chupacabra"
+    },
+    {
+        "nombre":"Clabbert"
+    },
+    {
+        "nombre":"Colacuerno Húngaro"
+    },
+    {
+        "nombre":"Colagancho"
+    },
+    {
+        "nombre":"Centauro"
+    },
+    {
+        "nombre":"Cangrejo de fuego"
+    },
+    {
+        "nombre":"Curupira"
+    },
+    {
+        "nombre":"Caipora"
+    },
+    {
+        "nombre":"Chizpurfle"
+    },
+    {
+        "nombre":"Cocatriz"
+    },
+    {
+        "nombre":"Crup"
+    },
+    {
+        "nombre":"Ciclope"
+    },
+    {
+        "nombre":"Coco Rumsey Catcher"
+    },
+
     {
         "nombre":"Dementor"
     },
     {
-        "nombre":"Elfo"
+        "nombre":"Demiguise"
+    },
+    {
+        "nombre":"Diricawl"
+    },
+    {
+        "nombre":"Doxy"
+    },
+    {
+        "nombre":"Duendecillo de Cornualles"
+    },
+    {
+        "nombre":"Dragon"
+    },
+    {
+        "nombre":"Dugbog"
+    },
+    {
+        "nombre":"Dukuwaqa"
+    },
+    {
+        "nombre":"Duende"
+    },
+    {
+        "nombre":"Diablillo"
+    },
+    {
+        "nombre":"Daraliznof Freaazer"
+    },
+
+    {
+        "nombre":"Elfo doméstico"
     },
     {
         "nombre":"Esfinge"
     },
+    {
+        "nombre":"Erkling"
+    },
+    {
+        "nombre":"Erumpent"
+    },
+    {
+        "nombre":"Escarbato"
+    },
+    {
+        "nombre":"Escondedetras"
+    },
+
     {
         "nombre":"Fantasma"
     },
@@ -30,8 +170,61 @@
         "nombre":"Fenix"
     },
     {
+        "nombre":"Fwopper"
+    },
+    {
+        "nombre":"Firedrake"
+    },
+
+    {
         "nombre":"Grindylow"
     },
+    {
+        "nombre":"Gorros rojos"
+    },
+    {
+        "nombre":"Gnomo"
+    },
+    {
+        "nombre":"Gargola"
+    },
+    {
+        "nombre":"Ghoul"
+    },
+    {
+        "nombre":"Gigante"
+    },
+    {
+        "nombre":"Glumbumble"
+    },
+    {
+        "nombre":"Graphorn"
+    },
+    {
+        "nombre":"Grifo"
+    },
+    {
+        "nombre":"Grim"
+    },
+    {
+        "nombre":"Gytrash"
+    },
+    {
+        "nombre":"Gales verde comun"
+    },
+    {
+        "nombre":"Gusano Aquavirus"
+    },
+    {
+        "nombre":"Gusarajo"
+    },
+    {
+        "nombre":"Granian"
+    },
+    {
+        "nombre":"Gringwwart Goff"
+    },
+
     {
         "nombre":"Hada"
     },
@@ -39,45 +232,306 @@
         "nombre":"Hipogrifo"
     },
     {
+        "nombre":"Hebrido Negro"
+    },
+    {
+        "nombre":"Heliopath"
+    },
+    {
+        "nombre":"Hinkypunk"
+    },
+    {
+        "nombre":"Hipocampo"
+    },
+    {
+        "nombre":"Hodag"
+    },
+    {
+        "nombre":"Hoo-hoo"
+    },
+    {
+        "nombre":"Horklump"
+    },
+    {
+        "nombre":"Hombre lobo"
+    },
+
+    {
         "nombre":"Inferi"
     },
+    {
+        "nombre":"Imp"
+    },
+    {
+        "nombre":"Ironbelly Ucraniano"
+    },
+
     {
         "nombre":"Jarvey"
     },
     {
-        "nombre":"Kappas"
+        "nombre":"Jobberknoll"
     },
+    {
+        "nombre":"Jarvey"
+    },
+    
+    {
+        "nombre":"Kappa"
+    },
+    {
+        "nombre":"Kelpie"
+    },
+    {
+        "nombre":"Knarl"
+    },
+    {
+        "nombre":"Kneazle"
+    },
+
     {
         "nombre":"Lechuza"
     },
     {
+        "nombre":"Leprechaun"
+    },
+    {
+        "nombre":"Lethifold"
+    },
+    {
+        "nombre":"Leucrotta"
+    },
+    {
+        "nombre":"Lobalug"
+    },
+    {
+        "nombre":"Longhorn Rumano"
+    },
+    {
+        "nombre":"Lebrilope"
+    },
+    {
+        "nombre":"Limax"
+    },
+
+    {
         "nombre":"Mantícora"
     },
+    {
+        "nombre":"Mackled Malaclaw"
+    },
+    {
+        "nombre":"Maggot"
+    },
+    {
+        "nombre":"Matagot"
+    },
+    {
+        "nombre":"Merrow"
+    },
+    {
+        "nombre":"Moke"
+    },
+    {
+        "nombre":"Mooncalf"
+    },
+    {
+        "nombre":"Murtlap"
+    },
+    {
+        "nombre":"Micropuff"
+    },
+    {
+        "nombre":"Miraf Leldendi"
+    },
+
+
     {
         "nombre":"Nundu"
     },
     {
+        "nombre":"Nargle"
+    },
+    {
+        "nombre":"Nazzle Mumph"
+    },
+    {
+        "nombre":"Nogtail"
+    },
+
+    {
         "nombre":"Occamy"
     },
+    {
+        "nombre":"Opaleye de las Antípodas"
+    },
+
     {
         "nombre":"Plimpy"
     },
     {
+        "nombre":"Pogrebin"
+    },
+    {
+        "nombre":"Poltergeist"
+    },
+    {
+        "nombre":"Porlock"
+    },
+    {
+        "nombre":"Puffskein"
+    },
+    {
+        "nombre":"Pukwudgie"
+    },
+    {
+        "nombre":"Paiño gigante"
+    },
+    {
+        "nombre":"Puffskein Appaloosa"
+    },
+
+    {
         "nombre":"Quimera"
     },
+    {
+        "nombre":"Quintaped"
+    },
+
     {
         "nombre":"Rámora"
     },
     {
+        "nombre":"Rougarou"
+    },
+    {
+        "nombre":"Runespoor"
+    },
+    {
+        "nombre":"Ridgeback Noruego"
+    },
+    {
+        "nombre":"Rana Lunar"
+    },
+
+    {
         "nombre":"Snidget dorado"
     },
+    {
+        "nombre":"Selkie"
+    },
+    {
+        "nombre":"Salamandra"
+    },
+    {
+        "nombre":"Sasabonsam"
+    },
+    {
+        "nombre":"Serpiente marina"
+    },
+    {
+        "nombre":"Serpiente Cornuda"
+    },
+    {
+        "nombre":"Selma"
+    },
+    {
+        "nombre":"Shrake"
+    },
+    {
+        "nombre":"Snallyaster"
+    },
+    {
+        "nombre":"Streeler"
+    },
+    {
+        "nombre":"Swooping Evil"
+    },
+    {
+        "nombre":"Sasquatch"
+    },
+    {
+        "nombre":"Snorkack de cuernos arrugados"
+    },
+    {
+        "nombre":"Sapo purpura gigante"
+    },
+    {
+        "nombre":"Shelliferous Drogodflikerous"
+    },
+
     {
         "nombre":"Thestral"
     },
     {
+        "nombre":"Tebo"
+    },
+    {
+        "nombre":"Thunderbird"
+    },
+    {
+        "nombre":"Troll"
+    },
+    {
+        "nombre":"Troll de Rio"
+    },
+    {
+        "nombre":"Troll de Bosque"
+    },
+    {
+        "nombre":"Troll de Montaña"
+    },
+    {
+        "nombre":"Torposoplo"
+    },
+    {
+        "nombre":"Tritón de doble cola"
+    },
+    {
+        "nombre":"Troll de Nadroj"
+    },
+    
+    {
         "nombre":"Unicornio"
     },
     {
+        "nombre":"Uro"
+    },
+    {
+        "nombre":"Umgubular Slashkitler"
+    },
+
+    {
         "nombre":"Veela"
+    },
+    {
+        "nombre":"Valcore"
+    },
+    {
+        "nombre":"Vampiro"
+    },
+    {
+        "nombre":"Vipertooth Peruano"
+    },
+
+    {
+        "nombre":"Wampus"
+    },
+    {
+        "nombre":"Wyvern"
+    },
+
+    {
+        "nombre":"Yeti"
+    },
+    {
+        "nombre":"Yumbo"
+    },
+
+    {
+        "nombre":"Zombie"
+    },
+    {
+        "nombre":"Zouwu"
     }
 ]
