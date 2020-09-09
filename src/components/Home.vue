@@ -12,7 +12,7 @@
                         <b-list-group-item button v-on:click="abrirDinamica('acrosticoMagico')">ACRÓSTICO</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('yElEmoticon')">ABC DE EMOJIS</b-list-group-item>
                         <b-list-group-item button v-on:click="abrirDinamica('dinamicaAhorcados')">AHORCADOS</b-list-group-item>
-                        
+                        <b-list-group-item button v-on:click="abrirDinamica('carrusel')">CARRUSEL</b-list-group-item>
                     </b-list-group>
                 </b-col>
                 <b-col cols="6">
@@ -267,9 +267,27 @@
             </div>
             <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('espejosExit')">Copiar al Portapapeles</b-button>
             <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
+        </b-modal> 
+        <b-modal ref="modalCarrusel" hide-footer title="Carrusel">
+            <div class="d-block text-center">
+                <b-form-input
+                    id="palabraCarrusel"
+                    v-model="carrusel.entradaTexto"
+                    placeholder="Entrada de texto"
+                    v-on:keyup.enter="realizarCarrusel()"
+                    v-on:keyup="mayus('carrusel')"
+                    autocomplete="off"
+                ></b-form-input>
+                <b-form-textarea
+                    id="carruselExit"
+                    plaintext :value="carruselHTML"
+                    rows="3"
+                ></b-form-textarea>
+            </div>
+            <b-button class="mt-3" variant="outline-info" block @click="copiarAlPortapeles('carruselExit')">Copiar al Portapapeles</b-button>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-button>
         </b-modal>       
     </div>
-    
 </template>
 
 <script>
@@ -329,6 +347,9 @@ export default {
             entradaTexto:'',
             tipoEntrada:'Simple'
         },
+        carrusel:{
+            entradaTexto:''
+        },
         acrosticoCruzadoHTML: ``,
         stopHTML: ``,
         acrosticoMagicoHTML: ``,
@@ -338,7 +359,8 @@ export default {
         parselHTML:``,
         encoraHTML:``,
         bloqueiHTML:``,
-        espejosHTML:``
+        espejosHTML:``,
+        carruselHTML: ``
         }
   },
   methods:{
@@ -698,6 +720,18 @@ export default {
           }
           this.espejosHTML = salida
       },
+      realizarCarrusel(){
+        let caracteres = this.carrusel.entradaTexto.split("")
+        let salida = caracteres[0]
+        for (let i = 1; i < caracteres.length; i++) {
+            if (caracteres[i] === " ") {
+                caracteres.splice(i,0)
+            }else{
+                salida = salida+ " " + caracteres[i]
+            }
+        }        
+        this.carruselHTML = salida;
+      },
       
       abrirDinamica (tipo){
             
@@ -732,8 +766,11 @@ export default {
                 case 'bloquei':
                     this.$refs['modalBloquei'].show()
                     break;
-                 case 'espejos':
+                case 'espejos':
                     this.$refs['modalEspejos'].show()
+                    break;
+                case 'carrusel':
+                    this.$refs['modalCarrusel'].show()
                     break;
           }
       },
@@ -748,6 +785,7 @@ export default {
         this.$refs['modalEncorazonados'].hide()
         this.$refs['modalBloquei'].hide()
         this.$refs['modalEspejos'].hide()
+        this.$refs['modalCarrusel'].hide()
         this.acrosticoCruzado.entradaTexto='';
         this.stop.entradaTexto='';
         this.acrosticoMagico.entradaTexto = '';
@@ -759,6 +797,7 @@ export default {
         this.encora.entradaTexto = '';
         this.bloquei.entradaTexto = '';
         this.espejos.entradaTexto = '';
+        this.carrusel.entradaTexto = '';
         this.acrosticoCruzadoHTML = '';
         this.stopHTML = '';
         this.acrosticoMagicoHTML = ''
@@ -769,6 +808,7 @@ export default {
         this.encoraHTML = ''
         this.bloqueiHTML = ''
         this.espejosHTML = ''
+        this.carruselHTML = ''
       },
 
       mayus(id) {
@@ -900,6 +940,10 @@ export default {
             }
             if(id==="espejos"){
                 this.realizarEspejos();
+            }
+            if(id==='carrusel'){
+                this.carrusel.entradaTexto = this.carrusel.entradaTexto.toUpperCase();
+                this.realizarCarrusel();
             }
         }
   }
