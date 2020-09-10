@@ -396,14 +396,14 @@ export default {
                 for(let j=0;j<ciudadesPaises.length;j++){
                     let traduccion = ciudadesPaises[j].translations.es;
                     if(traduccion !== null)
-                        if(traduccion.charAt(0) === caracteres[i] ){
+                        if(traduccion.charAt(0).toUpperCase() === caracteres[i] ){
                             ciudadesLetras.push(traduccion);
                         }
                 }
                 for (let k = 0; k < ciudadesPaises.length; k++) {
                     let capital = ciudadesPaises[k].capital
                     if(capital !== null)
-                        if(capital.charAt(0) === caracteres[i]){
+                        if(capital.charAt(0).toUpperCase() === caracteres[i]){
                             ciudadesLetras.push(capital);
                         }
                 }
@@ -429,22 +429,22 @@ export default {
             for(let i = 0;i<caracteres.length;i++){
                 totalLetras=[];
                 for(let j=0;j<personajes.length;j++){
-                    if(personajes[j].nombre.charAt(0) === caracteres[i]){
+                    if(personajes[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                         totalLetras.push(personajes[j].nombre + ' ' +personajes[j].apellido);
                     }
                 }
                 for(let j=0;j<personajes.length;j++){
-                    if(personajes[j].apellido.charAt(0) === caracteres[i]){
+                    if(personajes[j].apellido.charAt(0) === caracteres[i].toUpperCase()){
                         totalLetras.push(personajes[j].apellido + ' ' +personajes[j].nombre);
                     }
                 }
                 for(let j=0;j<criaturasJSON.length;j++){
-                    if(criaturasJSON[j].nombre.charAt(0) === caracteres[i]){
+                    if(criaturasJSON[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                         totalLetras.push(criaturasJSON[j].nombre);
                     }
                 }
                 for(let j=0;j<hechizosJSON.length;j++){
-                    if(hechizosJSON[j].nombre.charAt(0) === caracteres[i]){
+                    if(hechizosJSON[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                         totalLetras.push(hechizosJSON[j].nombre);
                     }
                 }
@@ -529,22 +529,22 @@ export default {
         for(let i = 0;i<caracteres.length;i++){
             totalLetras=[];
             for(let j=0;j<personajes.length;j++){
-                if(personajes[j].nombre.charAt(0) === caracteres[i]){
+                if(personajes[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                     totalLetras.push(personajes[j].nombre + ' ' +personajes[j].apellido);
                 }
             }
             for(let j=0;j<personajes.length;j++){
-                if(personajes[j].apellido.charAt(0) === caracteres[i]){
+                if(personajes[j].apellido.charAt(0) === caracteres[i].toUpperCase()){
                     totalLetras.push(personajes[j].apellido + ' ' +personajes[j].nombre);
                 }
             }
             for(let j=0;j<criaturasJSON.length;j++){
-                if(criaturasJSON[j].nombre.charAt(0) === caracteres[i]){
+                if(criaturasJSON[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                     totalLetras.push(criaturasJSON[j].nombre);
                 }
             }
             for(let j=0;j<hechizosJSON.length;j++){
-                if(hechizosJSON[j].nombre.charAt(0) === caracteres[i]){
+                if(hechizosJSON[j].nombre.charAt(0) === caracteres[i].toUpperCase()){
                     totalLetras.push(hechizosJSON[j].nombre);
                 }
             }
@@ -814,8 +814,8 @@ export default {
       mayus(id) {
           
             if(id==='acrosticoCruzado'){
-                let entradaAux = this.acrosticoCruzado.entradaTexto.toUpperCase();
-                let caracteres = entradaAux.split("");
+                //let entradaAux = this.acrosticoCruzado.entradaTexto.toUpperCase();
+                let caracteres = this.acrosticoCruzado.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
                         caracteres[i] = 'A';
@@ -842,8 +842,8 @@ export default {
                 this.realizarStop();
             }
             if(id==='acrosticoMagico'){
-                let entradaAux = this.acrosticoMagico.entradaTexto.toUpperCase();
-                let caracteres = entradaAux.split("");
+                //let entradaAux = this.acrosticoMagico.entradaTexto.toUpperCase();
+                let caracteres = this.acrosticoMagico.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
                         caracteres[i] = 'A';
