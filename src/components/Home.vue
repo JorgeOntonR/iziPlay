@@ -814,8 +814,8 @@ export default {
       mayus(id) {
           
             if(id==='acrosticoCruzado'){
-                //this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
-                let caracteres = this.acrosticoCruzado.entradaTexto.split("");
+                let entradaAux = this.acrosticoCruzado.entradaTexto.toUpperCase();
+                let caracteres = entradaAux.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
                         caracteres[i] = 'A';
@@ -838,12 +838,12 @@ export default {
                 this.realizarAcrosticoCruzado();
             }
             if(id==='stop'){
-                //this.stop.entradaTexto = this.stop.entradaTexto.toUpperCase();
+                this.stop.entradaTexto = this.stop.entradaTexto.toUpperCase();
                 this.realizarStop();
             }
             if(id==='acrosticoMagico'){
-                //this.acrosticoMagico.entradaTexto = this.acrosticoMagico.entradaTexto.toUpperCase();
-                let caracteres = this.acrosticoMagico.entradaTexto.split("");
+                let entradaAux = this.acrosticoMagico.entradaTexto.toUpperCase();
+                let caracteres = entradaAux.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
                         caracteres[i] = 'A';
