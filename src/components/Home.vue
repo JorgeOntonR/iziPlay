@@ -684,7 +684,7 @@ export default {
             salida = salida + caracteres[i] + this.encora.emoji;
             }
             
-        this.encoraHTML = salida;
+        this.encoraHTML = salida.toUpperCase();
 
       },
 
@@ -704,7 +704,7 @@ export default {
               }
               salida = salida + '\n'
           }
-          this.bloqueiHTML = salida;
+          this.bloqueiHTML = salida.toUpperCase();
       },
 
       realizarEspejos()
@@ -814,7 +814,7 @@ export default {
       mayus(id) {
           
             if(id==='acrosticoCruzado'){
-                this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
+                //this.acrosticoCruzado.entradaTexto = this.acrosticoCruzado.entradaTexto.toUpperCase();
                 let caracteres = this.acrosticoCruzado.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
@@ -838,15 +838,35 @@ export default {
                 this.realizarAcrosticoCruzado();
             }
             if(id==='stop'){
-                this.stop.entradaTexto = this.stop.entradaTexto.toUpperCase();
+                //this.stop.entradaTexto = this.stop.entradaTexto.toUpperCase();
                 this.realizarStop();
             }
             if(id==='acrosticoMagico'){
-                this.acrosticoMagico.entradaTexto = this.acrosticoMagico.entradaTexto.toUpperCase();
+                //this.acrosticoMagico.entradaTexto = this.acrosticoMagico.entradaTexto.toUpperCase();
+                let caracteres = this.acrosticoMagico.entradaTexto.split("");
+                for(let i=0;i<caracteres.length;i++){
+                    if(caracteres[i]=== 'Á'){
+                        caracteres[i] = 'A';
+                    }
+                    if(caracteres[i]=== 'É'){
+                        caracteres[i] = 'E';
+                    }
+                    if(caracteres[i]=== 'Í'){
+                        caracteres[i] = 'I';
+                    }
+                    if(caracteres[i]=== 'Ó'){
+                        caracteres[i] = 'O';
+                    }
+                    if(caracteres[i]=== 'Ú'){
+                        caracteres[i] = 'U';
+                    }
+                }
+                let sinTildes = caracteres.toString().replace(/,/g, '');
+                this.acrosticoMagico.entradaTexto = sinTildes;
                 this.realizarAcrosticoMagico();
             }
             if(id==='palabraYElEmoticon'){
-                this.yElEmoticon.entradaTexto = this.yElEmoticon.entradaTexto.toUpperCase();
+                //this.yElEmoticon.entradaTexto = this.yElEmoticon.entradaTexto.toUpperCase();
                 let caracteres = this.yElEmoticon.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
@@ -912,7 +932,7 @@ export default {
                 this.realizarParsel();
             }
             if(id==='bloquei'){
-                this.bloquei.entradaTexto = this.bloquei.entradaTexto.toUpperCase();
+                //this.bloquei.entradaTexto = this.bloquei.entradaTexto.toUpperCase();
                 let caracteres = this.bloquei.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
@@ -936,7 +956,7 @@ export default {
                 this.realizarBloquei();
             }
             if(id==='encora'){
-                this.encora.entradaTexto = this.encora.entradaTexto.toUpperCase();
+                //this.encora.entradaTexto = this.encora.entradaTexto.toUpperCase();
                 let caracteres = this.encora.entradaTexto.split("");
                 for(let i=0;i<caracteres.length;i++){
                     if(caracteres[i]=== 'Á'){
