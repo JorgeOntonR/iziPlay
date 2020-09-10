@@ -203,7 +203,7 @@
                     id="palabraEncora"
                     v-model="encora.entradaTexto"
                     placeholder="Entrada de texto"
-                    v-on:keyup.enter="realizarEncora()"
+                    v-on:keyup.enter="realizarEncora(emojiEncora)"
                     v-on:keyup="mayus('encora')"
                     autocomplete="off"
                 ></b-form-input>
@@ -229,7 +229,7 @@
                     id="palabraBloquei"
                     v-model="bloquei.entradaTexto"
                     placeholder="Entrada de texto"
-                    v-on:keyup.enter="realizarBloquei()"
+                    v-on:keyup.enter="realizarBloquei(emojiBloquei)"
                     v-on:keyup="mayus('bloquei')"
                     autocomplete="off"
                 ></b-form-input>
@@ -913,6 +913,27 @@ export default {
             }
             if(id==='bloquei'){
                 this.bloquei.entradaTexto = this.bloquei.entradaTexto.toUpperCase();
+                let caracteres = this.bloquei.entradaTexto.split("");
+                for(let i=0;i<caracteres.length;i++){
+                    if(caracteres[i]=== 'Á'){
+                        caracteres[i] = 'A';
+                    }
+                    if(caracteres[i]=== 'É'){
+                        caracteres[i] = 'E';
+                    }
+                    if(caracteres[i]=== 'Í'){
+                        caracteres[i] = 'I';
+                    }
+                    if(caracteres[i]=== 'Ó'){
+                        caracteres[i] = 'O';
+                    }
+                    if(caracteres[i]=== 'Ú'){
+                        caracteres[i] = 'U';
+                    }
+                }
+                let sinTildes = caracteres.toString().replace(/,/g, '');
+                this.bloquei.entradaTexto = sinTildes;
+                this.realizarBloquei();
             }
             if(id==='encora'){
                 this.encora.entradaTexto = this.encora.entradaTexto.toUpperCase();
@@ -936,7 +957,7 @@ export default {
                 }
                 let sinTildes = caracteres.toString().replace(/,/g, '');
                 this.encora.entradaTexto = sinTildes;
-                //this.realizarEncora();
+                this.realizarEncora();
             }
             if(id==="espejos"){
                 this.realizarEspejos();
